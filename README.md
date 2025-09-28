@@ -4,7 +4,7 @@ Enterprise-grade LLM safety guardrails implementation with Python, FastAPI, and 
 
 ## 🎯 Tutorial Overview
 
-This repository accompanies the [CrashBytes tutorial](https://crashbytes.com/tutorial-production-llm-guardrails-python-fastapi-2025) on building production-ready LLM guardrails.
+This repository accompanies the [CrashBytes tutorial](https://crashbytes.com/articles/tutorial-production-llm-guardrails-python-fastapi-2025/) on building production-ready LLM guardrails.
 
 ### Features
 
@@ -58,7 +58,7 @@ uvicorn src.api.main:app --reload --port 8000
 
 ## 📚 Tutorial Content
 
-Read the complete tutorial at: [crashbytes.com/tutorial-production-llm-guardrails-python-fastapi-2025](https://crashbytes.com/tutorial-production-llm-guardrails-python-fastapi-2025)
+Read the complete tutorial at: [crashbytes.com/tutorial-production-llm-guardrails-python-fastapi-2025](https://crashbytes.com/articles/tutorial-production-llm-guardrails-python-fastapi-2025/)
 
 ## 🏗️ Architecture
 
@@ -128,7 +128,7 @@ kubectl get pods -l app=llm-guardrails
 ## 🤝 Contributing
 
 This is a tutorial repository. For questions or improvements:
-1. Read the [full tutorial](https://crashbytes.com/tutorial-production-llm-guardrails-python-fastapi-2025)
+1. Read the [full tutorial](https://crashbytes.com/articles/tutorial-production-llm-guardrails-python-fastapi-2025/)
 2. Open an issue with your question
 3. Submit a PR with improvements
 

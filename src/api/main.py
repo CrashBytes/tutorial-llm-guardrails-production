@@ -72,7 +72,7 @@ async def root():
         "docs": "/docs",
         "health": "/health",
         "metrics": "/metrics",
-        "tutorial": "https://crashbytes.com/tutorial-production-llm-guardrails-python-fastapi-2025",
+        "tutorial": "https://crashbytes.com/articles/tutorial-production-llm-guardrails-python-fastapi-2025/",
         "github": "https://github.com/CrashBytes/tutorial-llm-guardrails-production"
     }
 
@@ -246,7 +246,7 @@ def _generate_completion_placeholder(request: LLMRequest) -> str:
         f"This is a placeholder completion for the prompt: '{request.prompt[:50]}...'\n\n"
         f"In production, this would be replaced with actual LLM API calls to "
         f"{request.provider.value}. See the full tutorial at "
-        f"https://crashbytes.com/tutorial-production-llm-guardrails-python-fastapi-2025 "
+        f"https://crashbytes.com/articles/tutorial-production-llm-guardrails-python-fastapi-2025/"
         f"for complete implementation including OpenAI and Anthropic integrations."
     )
 

@@ -4,7 +4,7 @@
 
 Date: September 27, 2025  
 Repository: https://github.com/CrashBytes/tutorial-llm-guardrails-production  
-Blog Post: https://crashbytes.com/tutorial-production-llm-guardrails-python-fastapi-2025
+Blog Post: https://crashbytes.com/articles/tutorial-production-llm-guardrails-python-fastapi-2025/
 
 ---
 
@@ -233,7 +233,7 @@ The following components have simplified placeholder implementations that demons
 ## 🚀 Repository Status
 
 - **GitHub Repository**: ✅ Live at https://github.com/CrashBytes/tutorial-llm-guardrails-production
-- **Blog Post**: ✅ Published at https://crashbytes.com/tutorial-production-llm-guardrails-python-fastapi-2025
+- **Blog Post**: ✅ Published at https://crashbytes.com/articles/tutorial-production-llm-guardrails-python-fastapi-2025/
 - **Documentation**: ✅ Complete with architecture diagrams
 - **Tests**: ✅ Unit and integration tests passing
 - **CI/CD**: ✅ GitHub Actions configured
