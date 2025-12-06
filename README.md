@@ -2,7 +2,7 @@
 
 Enterprise-grade LLM safety guardrails implementation with Python, FastAPI, and comprehensive monitoring.
 
-## 🎯 Tutorial Overview
+## Tutorial Overview
 
 This repository accompanies the [CrashBytes tutorial](https://crashbytes.com/articles/tutorial-production-llm-guardrails-python-fastapi-2025/) on building production-ready LLM guardrails.
 
@@ -14,7 +14,7 @@ This repository accompanies the [CrashBytes tutorial](https://crashbytes.com/art
 - **Enterprise-Grade**: Docker/Kubernetes deployment configurations
 - **Fully Tested**: Unit and integration test suites
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -56,11 +56,11 @@ uvicorn src.api.main:app --reload --port 8000
 # Visit http://localhost:8000/docs for API documentation
 ```
 
-## 📚 Tutorial Content
+## Tutorial Content
 
 Read the complete tutorial at: [crashbytes.com/tutorial-production-llm-guardrails-python-fastapi-2025](https://crashbytes.com/articles/tutorial-production-llm-guardrails-python-fastapi-2025/)
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 User Input → Pre-Processing Guardrails → LLM API → Post-Processing Guardrails → User Output
@@ -72,7 +72,7 @@ User Input → Pre-Processing Guardrails → LLM API → Post-Processing Guardra
          Prometheus Metrics ← Logging & Audit Trail → Redis Cache
 ```
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run all tests
@@ -86,7 +86,7 @@ pytest tests/unit/
 pytest tests/integration/
 ```
 
-## 🐳 Docker Deployment
+## Docker Deployment
 
 ```bash
 # Build image
@@ -96,7 +96,7 @@ docker build -t llm-guardrails:latest .
 docker run -p 8000:8000 --env-file .env llm-guardrails:latest
 ```
 
-## ☸️ Kubernetes Deployment
+## Kubernetes Deployment
 
 ```bash
 # Apply configurations
@@ -106,44 +106,44 @@ kubectl apply -f deployment/kubernetes/
 kubectl get pods -l app=llm-guardrails
 ```
 
-## 📊 Monitoring
+## Monitoring
 
 - Prometheus metrics available at `/metrics`
 - Health check at `/health`
 - API documentation at `/docs`
 
-## 🔒 Security Considerations
+## Security Considerations
 
 - All sensitive data (API keys, credentials) must be in environment variables
 - PII is automatically detected and redacted
 - Rate limiting prevents abuse
 - Comprehensive audit logging enabled
 
-## 📖 Documentation
+## Documentation
 
 - [Architecture Overview](docs/architecture.md)
 - [Configuration Guide](docs/configuration.md)
 - [Troubleshooting](docs/troubleshooting.md)
 
-## 🤝 Contributing
+## Contributing
 
 This is a tutorial repository. For questions or improvements:
 1. Read the [full tutorial](https://crashbytes.com/articles/tutorial-production-llm-guardrails-python-fastapi-2025/)
 2. Open an issue with your question
 3. Submit a PR with improvements
 
-## 📝 License
+## License
 
 MIT License - see [LICENSE](LICENSE) file for details
 
-## 🔗 Related Resources
+## Related Resources
 
 - [CrashBytes Blog](https://crashbytes.com)
 - [AI Governance Framework Guide](https://crashbytes.com/ai-governance-framework-implementation-strategic-vp-guide-regulatory-compliance-risk-management-enterprise-transformation-2025)
 - [FastAPI Documentation](https://fastapi.tiangolo.com/)
 - [Presidio Documentation](https://microsoft.github.io/presidio/)
 
-## 👤 Author
+## Author
 
 **Michael Eakins**
 - Website: [crashbytes.com](https://crashbytes.com)
@@ -151,4 +151,4 @@ MIT License - see [LICENSE](LICENSE) file for details
 
 ---
 
-⭐ If you find this tutorial helpful, please star the repository!
+If you find this tutorial helpful, please star the repository!
