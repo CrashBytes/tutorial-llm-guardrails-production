@@ -79,7 +79,7 @@ def track_request_duration(endpoint: str):
                 requests_duration.labels(endpoint=endpoint).observe(duration)
                 requests_total.labels(endpoint=endpoint, status='success').inc()
                 return result
-            except Exception as e:
+            except Exception:
                 duration = time.time() - start_time
                 requests_duration.labels(endpoint=endpoint).observe(duration)
                 requests_total.labels(endpoint=endpoint, status='error').inc()

@@ -14,8 +14,7 @@ import logging
 from src.models.schemas import (
     LLMRequest,
     LLMResponse,
-    HealthCheckResponse,
-    GuardrailCheckResult
+    HealthCheckResponse
 )
 from src.config.settings import get_settings
 from src.guardrails.orchestrator import GuardrailOrchestrator

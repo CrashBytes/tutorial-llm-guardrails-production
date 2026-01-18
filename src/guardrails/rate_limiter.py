@@ -10,7 +10,6 @@ Full Redis implementation available in the complete tutorial.
 from typing import Dict, Tuple
 import logging
 from datetime import datetime
-import asyncio
 
 logger = logging.getLogger(__name__)
 
