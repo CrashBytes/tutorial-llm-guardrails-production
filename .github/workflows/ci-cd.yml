@@ -47,10 +47,14 @@ jobs:
       continue-on-error: true
 
     - name: Run unit tests
+      env:
+        PYTHONPATH: ${{ github.workspace }}
       run: |
         pytest tests/unit/ -v --cov=src --cov-report=xml
 
     - name: Run integration tests
+      env:
+        PYTHONPATH: ${{ github.workspace }}
       run: |
         pytest tests/integration/ -v
 
