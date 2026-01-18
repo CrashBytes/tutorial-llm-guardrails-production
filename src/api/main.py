@@ -11,20 +11,20 @@ import uuid
 import time
 import logging
 
-from .models.schemas import (
+from src.models.schemas import (
     LLMRequest,
     LLMResponse,
     HealthCheckResponse,
     GuardrailCheckResult
 )
-from .config.settings import get_settings
-from .guardrails.orchestrator import GuardrailOrchestrator
-from .monitoring.metrics import (
+from src.config.settings import get_settings
+from src.guardrails.orchestrator import GuardrailOrchestrator
+from src.monitoring.metrics import (
     get_metrics,
     track_request_duration,
     record_llm_request
 )
-from .monitoring.logging import setup_logging, audit_logger
+from src.monitoring.logging import setup_logging, audit_logger
 
 # Setup logging
 setup_logging()
@@ -181,7 +181,7 @@ async def create_completion(request: LLMRequest):
         
         # Generate LLM completion (placeholder)
         # In production, this would call OpenAI/Anthropic API
-        completion_text = self._generate_completion_placeholder(request)
+        completion_text = _generate_completion_placeholder(request)
         
         # Record LLM request
         record_llm_request(
