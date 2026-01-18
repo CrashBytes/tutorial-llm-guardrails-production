@@ -9,7 +9,7 @@ import sys
 from pythonjsonlogger import jsonlogger
 from typing import Optional
 
-from ..config.settings import get_settings
+from src.config.settings import get_settings
 
 
 def setup_logging():

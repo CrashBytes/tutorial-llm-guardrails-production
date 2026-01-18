@@ -9,16 +9,16 @@ import time
 import logging
 from datetime import datetime
 
-from ..models.schemas import (
+from src.models.schemas import (
     GuardrailCheckResult,
     GuardrailViolation,
     LLMRequest
 )
-from ..config.settings import get_settings
-from .pii_detector import get_pii_detector
-from .toxicity_detector import get_toxicity_detector
-from .rate_limiter import get_rate_limiter
-from ..monitoring.metrics import (
+from src.config.settings import get_settings
+from src.guardrails.pii_detector import get_pii_detector
+from src.guardrails.toxicity_detector import get_toxicity_detector
+from src.guardrails.rate_limiter import get_rate_limiter
+from src.monitoring.metrics import (
     record_guardrail_check,
     record_guardrail_violation
 )
