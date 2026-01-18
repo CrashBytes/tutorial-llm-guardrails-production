@@ -85,15 +85,19 @@ class TestCompletionsEndpoint:
         from src.api.main import app
         from src.models.schemas import GuardrailCheckResult
         
-        # Mock the orchestrator
+        # Mock the orchestrator with actual GuardrailCheckResult objects
         with patch('src.api.main.orchestrator') as mock_orch:
-            mock_input_check = Mock()
-            mock_input_check.passed = True
-            mock_input_check.violations = []
+            mock_input_check = GuardrailCheckResult(
+                passed=True,
+                violations=[],
+                processing_time_ms=10.0
+            )
             
-            mock_output_check = Mock()
-            mock_output_check.passed = True
-            mock_output_check.violations = []
+            mock_output_check = GuardrailCheckResult(
+                passed=True,
+                violations=[],
+                processing_time_ms=5.0
+            )
             
             mock_orch.check_input_guardrails = AsyncMock(return_value=mock_input_check)
             mock_orch.check_output_guardrails = AsyncMock(return_value=mock_output_check)
@@ -117,16 +121,20 @@ class TestCompletionsEndpoint:
     def test_completions_blocked_by_input_guardrails(self):
         """Test completions blocked by input guardrails"""
         from src.api.main import app
+        from src.models.schemas import GuardrailCheckResult, GuardrailViolation
         
         with patch('src.api.main.orchestrator') as mock_orch:
-            mock_violation = Mock()
-            mock_violation.guardrail_type = "toxicity"
-            mock_violation.severity = "high"
-            mock_violation.details = "Toxic content detected"
+            mock_violation = GuardrailViolation(
+                guardrail_type="toxicity",
+                severity="high",
+                message="Toxic content detected"
+            )
             
-            mock_input_check = Mock()
-            mock_input_check.passed = False
-            mock_input_check.violations = [mock_violation]
+            mock_input_check = GuardrailCheckResult(
+                passed=False,
+                violations=[mock_violation],
+                processing_time_ms=15.0
+            )
             
             mock_orch.check_input_guardrails = AsyncMock(return_value=mock_input_check)
             
@@ -148,20 +156,26 @@ class TestCompletionsEndpoint:
     def test_completions_blocked_by_output_guardrails(self):
         """Test completions blocked by output guardrails"""
         from src.api.main import app
+        from src.models.schemas import GuardrailCheckResult, GuardrailViolation
         
         with patch('src.api.main.orchestrator') as mock_orch:
-            mock_input_check = Mock()
-            mock_input_check.passed = True
-            mock_input_check.violations = []
+            mock_input_check = GuardrailCheckResult(
+                passed=True,
+                violations=[],
+                processing_time_ms=10.0
+            )
             
-            mock_violation = Mock()
-            mock_violation.guardrail_type = "pii"
-            mock_violation.severity = "medium"
-            mock_violation.details = "PII detected in output"
+            mock_violation = GuardrailViolation(
+                guardrail_type="pii",
+                severity="medium",
+                message="PII detected in output"
+            )
             
-            mock_output_check = Mock()
-            mock_output_check.passed = False
-            mock_output_check.violations = [mock_violation]
+            mock_output_check = GuardrailCheckResult(
+                passed=False,
+                violations=[mock_violation],
+                processing_time_ms=12.0
+            )
             
             mock_orch.check_input_guardrails = AsyncMock(return_value=mock_input_check)
             mock_orch.check_output_guardrails = AsyncMock(return_value=mock_output_check)
