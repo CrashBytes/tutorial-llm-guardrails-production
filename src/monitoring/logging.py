@@ -5,6 +5,7 @@ JSON-formatted logging for production observability.
 """
 
 import logging
+import os
 import sys
 from pythonjsonlogger import jsonlogger
 from typing import Optional
@@ -39,7 +40,11 @@ def setup_logging():
     
     # File handler for audit logs (if enabled)
     if settings.enable_audit_logging:
-        file_handler = logging.FileHandler('logs/audit.log')
+        # Ensure the log directory exists (it is gitignored / absent on fresh
+        # checkouts and in CI), otherwise FileHandler raises FileNotFoundError.
+        audit_log_path = 'logs/audit.log'
+        os.makedirs(os.path.dirname(audit_log_path), exist_ok=True)
+        file_handler = logging.FileHandler(audit_log_path)
         file_handler.setFormatter(formatter)
         file_handler.setLevel(logging.INFO)
         logger.addHandler(file_handler)

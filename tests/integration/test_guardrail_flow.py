@@ -5,14 +5,14 @@ Tests the full request flow through all guardrails.
 """
 
 import pytest
-from httpx import AsyncClient
+from httpx import ASGITransport, AsyncClient
 from src.api.main import app
 
 
 @pytest.mark.asyncio
 async def test_health_check():
     """Test health check endpoint"""
-    async with AsyncClient(app=app, base_url="http://test") as client:
+    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
         response = await client.get("/health")
         
         assert response.status_code == 200
@@ -24,7 +24,7 @@ async def test_health_check():
 @pytest.mark.asyncio
 async def test_root_endpoint():
     """Test root endpoint returns API information"""
-    async with AsyncClient(app=app, base_url="http://test") as client:
+    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
         response = await client.get("/")
         
         assert response.status_code == 200
@@ -36,7 +36,7 @@ async def test_root_endpoint():
 @pytest.mark.asyncio
 async def test_clean_prompt_completion():
     """Test that clean prompts pass through guardrails"""
-    async with AsyncClient(app=app, base_url="http://test") as client:
+    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
         response = await client.post(
             "/api/v1/completions",
             json={
@@ -58,7 +58,7 @@ async def test_clean_prompt_completion():
 @pytest.mark.asyncio
 async def test_pii_in_prompt_blocked():
     """Test that PII in prompts triggers guardrails"""
-    async with AsyncClient(app=app, base_url="http://test") as client:
+    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
         response = await client.post(
             "/api/v1/completions",
             json={
@@ -80,7 +80,7 @@ async def test_pii_in_prompt_blocked():
 @pytest.mark.asyncio
 async def test_toxic_content_blocked():
     """Test that toxic content triggers guardrails"""
-    async with AsyncClient(app=app, base_url="http://test") as client:
+    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
         response = await client.post(
             "/api/v1/completions",
             json={
@@ -102,7 +102,7 @@ async def test_toxic_content_blocked():
 @pytest.mark.asyncio
 async def test_metrics_endpoint():
     """Test Prometheus metrics endpoint"""
-    async with AsyncClient(app=app, base_url="http://test") as client:
+    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
         response = await client.get("/metrics")
         
         assert response.status_code == 200

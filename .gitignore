@@ -50,10 +50,11 @@ ENV/
 *.log
 logs/
 
-# Models (downloaded at runtime)
-models/
+# Models (downloaded at runtime) — top-level dir only, never src/models source
+/models/
 *.bin
 *.pt
+!src/models/
 
 # Data
 data/
