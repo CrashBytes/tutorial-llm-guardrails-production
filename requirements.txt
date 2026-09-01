@@ -1,12 +1,12 @@
 # Core framework
 fastapi==0.141.1
 uvicorn[standard]==0.52.3
-pydantic==2.13.4
+pydantic==2.13.5
 pydantic-settings==2.15.0
 
 # LLM and AI libraries
-openai==3.1.0
-anthropic==0.122.0
+openai==3.6.0
+anthropic==1.2.0
 
 # Guardrails and safety
 presidio-analyzer==2.2.364
@@ -31,5 +31,5 @@ httpx==0.28.1
 
 # Development tools
 black==26.5.1
-ruff==0.16.3
+ruff==0.16.5
 mypy==2.3.1
